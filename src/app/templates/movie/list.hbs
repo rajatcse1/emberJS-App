@@ -1,0 +1,17 @@
+{{#each movie in  model}}
+    <div class="movieThumbnail col-md-2">
+        <div class="thumbnail">
+            <a href="" {{action displayMovieInfo movie}}>
+                <img src="http://image.tmdb.org/t/p/w130{{unbound movie.poster_path}}" alt="{{unbound movie.title}}" class="img-thumbnail">
+                <!--<div class="caption">-->
+                    <p>{{movie.title}}</p>
+                <!--</div>-->
+            </a>
+        </div>
+    </div>
+    {{else}}
+    <div class="alert alert-danger">
+        <strong>Sorry!</strong> There is no movie in this category. Please select other category.
+    </div>
+{{/each}}
+

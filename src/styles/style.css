@@ -1,0 +1,13 @@
+div.movieThumbnail div.thumbnail{
+   border: none;
+}
+div.movieThumbnail img{
+    height: 150px;
+}
+div.movieThumbnail p{
+    font-size: .9em;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: center;
+}

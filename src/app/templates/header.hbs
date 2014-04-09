@@ -17,6 +17,11 @@
             <li>
                 <a href="#/tv">TV</a>
             </li>
+            {{#each menu in model}}
+                <li><a href="">{{menu}}</a></li>
+            {{else}}
+                <p>No menu data</p>
+            {{/each}}
         </ul>
     </div>
 </div>

@@ -1,12 +1,10 @@
 <div class="row">
     <div class="col-lg-2">
-        <ul class="nav nav-pills nav-stacked">
+        <div class="btn-group btn-group-vertical">
             {{#each genre in model}}
-            <li>
-                <a href="" {{action gotoMovieListByGenre genre}}>{{genre.name}}</a>
-            </li>
+            <button type="button" class="btn btn-default" {{action gotoMovieListByGenre genre}}>{{genre.name}}</button>
             {{/each}}
-        </ul>
+        </div>
     </div>
     <div class="col-lg-10">
         {{outlet}}

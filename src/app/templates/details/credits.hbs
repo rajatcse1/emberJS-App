@@ -1,0 +1,20 @@
+{{#each cast in  model.cast}}
+    <div class="movieThumbnail col-md-2">
+        <div class="thumbnail">
+            <a href="" {{action displayCastInfo cast}}>
+                {{#if cast.profile_path}}
+                <img src="http://image.tmdb.org/t/p/w130{{unbound cast.profile_path}}" alt="{{unbound cast.name}}" class="img-thumbnail">
+                {{else}}
+                <img src="./styles/web/noImage.jpg" alt="{{unbound cast.name}}" class="img-thumbnail">
+                {{/if}}
+                <!--<div class="caption">-->
+                    <p>{{cast.name}} as {{cast.character}}</p>
+                <!--</div>-->
+            </a>
+        </div>
+    </div>
+    {{else}}
+    <div class="alert alert-danger">
+        <strong>Sorry!</strong> There is no cast in this movie. Please select other movie.
+    </div>
+{{/each}}

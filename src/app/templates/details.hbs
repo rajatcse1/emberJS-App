@@ -1,0 +1,22 @@
+<div class="row">
+    <div class="col-md-3">
+        <img src="http://image.tmdb.org/t/p/w300{{unbound model.poster_path}}" alt="{{unbound model.title}}" class="img-thumbnail">
+    </div>
+    <div class="col-md-9">
+        <h2>{{model.original_title}}</h2>
+        <p>{{model.overview}}</p>
+    </div>
+</div>
+<hr>
+<div class="row">
+	<div class="btn-group">
+	  <button type="button" class="btn btn-default" {{action gotoCreditsListByMovie model}}>Credits</button>
+	  <button type="button" class="btn btn-default">Images</button>
+	  <button type="button" class="btn btn-default">Trailers</button>
+	  <button type="button" class="btn btn-default">Similar Movies</button>
+	  <button type="button" class="btn btn-default">Reviews</button>
+	</div>
+</div>
+<div class="row">
+	{{outlet}}
+</div>

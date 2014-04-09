@@ -1,41 +1,58 @@
 Ember.Application.reopen({
-    init:function () {
+    init: function() {
         this._super();
 
         this.loadTemplates();
-        this.thumbnailImageUrl();
+        //this.thumbnailImageUrl();
+        //this.loadConfig();
     },
-    templateBasePath:"",
-    templates:[],
+    templateBasePath: "",
+    templates: [],
 
-    loadTemplates:function () {
+    loadTemplates: function() {
         var app = this,
             templates = this.get('templates');
 
         app.deferReadiness();
 
-        var promises = templates.map(function (name) {
-            return Ember.$.get(app.get('templateBasePath') + name + '.hbs').then(function (data) {
+        var promises = templates.map(function(name) {
+            return Ember.$.get(app.get('templateBasePath') + name + '.hbs').then(function(data) {
                 Ember.TEMPLATES[name] = Ember.Handlebars.compile(data);
             });
         });
 
-        Ember.RSVP.all(promises).then(function () {
+        Ember.RSVP.all(promises).then(function() {
             app.advanceReadiness();
         });
     },
-    thumbnailImageUrl:function () {
-        Handlebars.registerHelper('thumbImage', function (url, altText) {
-            l_url = Handlebars.Utils.escapeExpression(url);
-            l_altText = Handlebars.Utils.escapeExpression(altText);
-
-            var result = '<img src="http://image.tmdb.org/t/p/w130' + l_url + '" alt="' + l_altText + '" class="img-thumbnail">';
-
-            return new Handlebars.SafeString(result);
-        });
-    }
+    //    thumbnailImageUrl:function () {
+    //        Handlebars.registerHelper('thumbImage', function (url, altText) {
+    //            l_url = Handlebars.Utils.escapeExpression(url);
+    //            l_altText = Handlebars.Utils.escapeExpression(altText);
+    //
+    //            var result = '<img src="http://image.tmdb.org/t/p/w130' + l_url + '" alt="' + l_altText + '" class="img-thumbnail">';
+    //
+    //            return new Handlebars.SafeString(result);
+    //        });
+    //    },
+    //    loadConfig:function(){
+    //        var app = this,
+    //            configUrl = app.get('configUrl');
+    //
+    //        app.deferReadiness();
+    //
+    //        var promises = function() {
+    //            return Ember.$.get(configUrl).then(function (data) {
+    //                app.configData = data;
+    //            });
+    //        };
+    //
+    //        Ember.RSVP.all(promises).then(function () {
+    //            app.advanceReadiness();
+    //        });
+    //    }
 });
 
-String.prototype.format = function () {
+String.prototype.format = function() {
     return "http://api.themoviedb.org/3" + this + 'api_key=';
 };

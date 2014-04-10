@@ -74,8 +74,9 @@ App.store = DS.Store.create({
 {{/each}}
 
 ---------
-
-|GET| /3/configuration| Updated on Dec. 13, 2013|
+|method | API | description|
+|-------|-----|------------|
+| GET | /3/configuration| Updated on Dec. 13, 2013|
 |GET| /3/account| Get the basic information for an account. You will need to have a valid session id.|
 |GET| /3/account/{id}/lists| Get the lists that you have created and marked as a favorite.|
 |GET| /3/account/{id}/favorite_movies| Get the list of favorite movies for an account.|
